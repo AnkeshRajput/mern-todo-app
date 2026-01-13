@@ -1,21 +1,9 @@
 import api from "./axios";
 
-export const getTodos = async () => {
-  const res = await api.get("/todos");
-  return res.data;
-};
-
-export const createTodo = async (title) => {
-  const res = await api.post("/todos", { title });
-  return res.data;
-};
-
-export const toggleTodo = async (id) => {
-  const res = await api.put(`/todos/${id}`);
-  return res.data;
-};
-
-export const deleteTodo = async (id) => {
-  const res = await api.delete(`/todos/${id}`);
-  return res.data;
-};
+export const getTodos = () => api.get("/todos");
+export const createTodo = (title) =>
+  api.post("/todos", { title });
+export const toggleTodo = (id) =>
+  api.patch(`/todos/${id}`);
+export const deleteTodo = (id) =>
+  api.delete(`/todos/${id}`);
