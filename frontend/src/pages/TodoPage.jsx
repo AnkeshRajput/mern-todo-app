@@ -8,11 +8,13 @@ export default function TodoPage() {
 
   const loadTodos = async () => {
     const res = await getTodos();
-    setTodos(res.data);
+    setTodos(res.data.data);
   };
 
   useEffect(() => {
-    loadTodos();
+    (async () => {
+      await loadTodos();
+    })();
   }, []);
 
   const handleAdd = async (e) => {
